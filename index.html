@@ -1,1 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SERGURIGH – Seguridad e Higiene</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--teal:#1e8a9a;
+--navy:#0b2d36;
+--gold:#d4a843;
+--cream:#f2ede6;
+--white:#fff;
+--gray:#9ab4bc;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:'DM Sans',sans-serif;
+background:var(--navy);
+color:var(--cream);
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:url("fondo.png") center/cover no-repeat;
+opacity:.25;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero img{
+width:130px;
+border-radius:50%;
+margin-bottom:20px;
+}
+
+h1{
+font-family:'Barlow Condensed',sans-serif;
+font-size:4rem;
+}
+
+h1 span{color:var(--teal);}
+
+.subtitle{
+color:var(--gray);
+margin-top:10px;
+}
+
+.btn{
+margin-top:20px;
+display:inline-block;
+padding:10px 20px;
+border-radius:30px;
+text-decoration:none;
+}
+
+.btn-main{
+background:var(--gold);
+color:var(--navy);
+}
+
+.btn-outline{
+border:1px solid var(--teal);
+color:var(--teal);
+}
+
+/* NAV */
+nav{
+position:sticky;
+top:0;
+background:#0b2d36ee;
+display:flex;
+justify-content:center;
+gap:20px;
+padding:15px;
+}
+
+nav button{
+background:none;
+border:none;
+color:var(--gray);
+cursor:pointer;
+}
+
+nav button.active{
+color:#fff;
+}
+
+/* SECCIONES */
+.section{
+display:none;
+padding:50px 20px;
+max-width:900px;
+margin:auto;
+}
+
+.section.active{display:block;}
+
+.card{
+background:#ffffff10;
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+img.profile{
+width:100%;
+border-radius:15px;
+}
+
+/* CONTACTO */
+input,textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+border:none;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:var(--gray);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<img src="logo.jpg">
+<h1>SERGU<span>RIGH</span></h1>
+<p class="subtitle">Servicio Integral de Seguridad e Higiene</p>
+<p>Disponibilidad en todo el país</p>
+
+<a class="btn btn-main" onclick="openTab('servicios')">Ver Servicios</a>
+<a class="btn btn-outline" onclick="openTab('contacto')">Contacto</a>
+</div>
+</section>
+
+<!-- NAV -->
+<nav>
+<button class="active" onclick="openTab('quienes')">Quiénes</button>
+<button onclick="openTab('mision')">Misión</button>
+<button onclick="openTab('servicios')">Servicios</button>
+<button onclick="openTab('contacto')">Contacto</button>
+</nav>
+
+<!-- QUIENES -->
+<div id="quienes" class="section active">
+<h2>Quiénes Somos</h2>
+
+<div class="grid">
+<div>
+<img src="romina.png" class="profile">
+</div>
+
+<div class="card">
+<p><strong>Sergurigh</strong> es un servicio profesional liderado por Romina Juliana Calvo, especializada en Higiene y Seguridad.</p>
+<p>Enfocado en la prevención, cumplimiento normativo y mejora continua mediante el uso de tecnología.</p>
+</div>
+</div>
+</div>
+
+<!-- MISION -->
+<div id="mision" class="section">
+<h2>Misión & Visión</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Misión</h3>
+<p>Brindar soluciones integrales que garanticen ambientes laborales seguros, cumpliendo normativa vigente y mejorando la calidad de trabajo.</p>
+</div>
+
+<div class="card">
+<h3>Visión</h3>
+<p>Ser referente nacional en seguridad laboral integrando innovación, tecnología y análisis de datos.</p>
+</div>
+</div>
+</div>
+
+<!-- SERVICIOS -->
+<div id="servicios" class="section">
+<h2>Servicios</h2>
+
+<div class="card">
+<h3>Asesoramiento en Seguridad e Higiene</h3>
+<p>Cumplimiento de Ley 19.587 y normativas vigentes.</p>
+</div>
+
+<div class="card">
+<h3>Auditorías y Evaluaciones</h3>
+<p>Detección de riesgos y mejora continua.</p>
+</div>
+
+<div class="card">
+<h3>Power BI aplicado a seguridad</h3>
+<p>Indicadores, reportes y análisis de datos.</p>
+</div>
+</div>
+
+<!-- CONTACTO -->
+<div id="contacto" class="section">
+<h2>Contacto</h2>
+
+<div class="card">
+<p>📧 sergurigh@gmail.com</p>
+<p>📞 +54 9 3446 66-2925</p>
+</div>
+
+<div class="card">
+<input placeholder="Nombre">
+<textarea placeholder="Consulta"></textarea>
+<button class="btn btn-main">Enviar</button>
+</div>
+</div>
+
+<footer>
+© 2025 SERGURIGH – Seguridad e Higiene
+</footer>
+
+<script>
+function openTab(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
