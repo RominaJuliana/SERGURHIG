@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SERGURIGH – Servicio Integral de Seguridad e Higiene</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --teal: #1e8a9a;
+      --navy: #0b2d36;
+      --gold: #d4a843;
+      --gold-light: #e8c06a;
+      --cream: #f2ede6;
+      --white: #fff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--cream); overflow-x: hidden; }
+
+    /* SECCIÓN DE PORTADA (HERO) */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      /* Capa oscura sobre fondo.png para que el texto resalte */
+      background: linear-gradient(rgba(11, 45, 54, 0.85), rgba(11, 45, 54, 0.85)), url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .logo-img { width: 130px; margin-bottom: 1.5rem; border-radius: 50%; border: 2px solid var(--gold); }
+    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 0.9; margin-bottom: 0.5rem; text-transform: uppercase; font-weight: 900; }
+    .hero h1 span { color: var(--teal); }
+    .hero-subtitle { color: var(--gold-light); letter-spacing: 3px; font-weight: bold; margin-bottom: 1.5rem; font-size: 0.85rem; text-transform: uppercase; }
+    .hero p { max-width: 600px; font-size: 1.15rem; margin-bottom: 2.5rem; line-height: 1.5; color: var(--cream); opacity: 0.9; }
+
+    /* SECCIÓN DE PERFIL PROFESIONAL */
+    .profile-section {
+      padding: 100px 10%;
+      background: var(--white);
+      color: var(--navy);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-box { position: relative; max-width: 380px; width: 100%; }
+    .profile-box img { width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); display: block; }
+    .badge { position: absolute; bottom: -15px; right: -15px; background: var(--gold); color: var(--navy); padding: 10px 20px; font-weight: 900; border-radius: 6px; font-family: 'Barlow Condensed'; font-size: 1.3rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+    .content { flex: 1; min-width: 300px; }
+    .content h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 3.5rem; color: var(--teal); line-height: 1; margin-bottom: 1.5rem; font-weight: 900; }
+    .content p { font-size: 1.15rem; margin-bottom: 1.5rem; line-height: 1.7; color: #444; }
+
+    /* BOTONES */
+    .btn-group { display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+    .btn { display: inline-block; padding: 1.1rem 2.2rem; border-radius: 60px; font-weight: 700; text-decoration: none; transition: 0.3s; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-gold { background: var(--gold); color: var(--navy); border: 2px solid var(--gold); }
+    .btn-outline { border: 2px solid var(--teal); color: var(--white); }
+    .btn:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); filter: brightness(1.1); }
+
+    footer { padding: 3rem; text-align: center; background: #082128; color: var(--gray); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    footer strong { color: var(--gold); }
+
+    /* AJUSTES PARA MÓVIL */
+    @media (max-width: 768px) {
+      .profile-section { padding: 60px 5%; text-align: center; }
+      .content h2 { font-size: 2.8rem; }
+      .badge { right: 50%; transform: translateX(50%); bottom: -20px; width: max-content; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="logo.jpg" alt="Logo SERGURIGH" class="logo-img">
+    <div class="hero-subtitle">Zárate • Villa Paranacito • Disponibilidad Nacional</div>
+    <h1>SERGU<span>RIGH</span></h1>
+    <p>Acompañamos a las organizaciones en la construcción de entornos de trabajo seguros, saludables y eficientes mediante la prevención y el cumplimiento normativo.</p>
+    
+    <div class="btn-group">
+      <a href="#perfil" class="btn btn-gold">VER SERVICIOS</a>
+      <a href="mailto:sergurigh@gmail.com" class="btn btn-outline">CONTACTAR</a>
+    </div>
+  </section>
+
+  <section class="profile-section" id="perfil">
+    <div class="profile-box">
+      <img src="romina.png" alt="Lic. Romina Juliana Calvo">
+      <div class="badge">LIC. HIGIENE Y SEGURIDAD</div>
+    </div>
+    
+    <div class="content">
+      <h2>GESTIÓN <br>PROFESIONAL</h2>
+      <p>Bajo la dirección de la <strong>Lic. Romina Juliana Calvo</strong>, egresada de la UTN, SERGURIGH ofrece un servicio integral enfocado en la mejora continua.</p>
+      <p>Nuestra propuesta integra herramientas digitales innovadoras para asegurar que la información crítica de seguridad esté siempre al alcance de quienes la necesitan en el entorno industrial.</p>
+      <a href="https://wa.me/tu-numero-aqui" class="btn btn-gold" style="background: var(--teal); color: white; border-color: var(--teal);">CONSULTAR POR WHATSAPP</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 <strong>SERGURIGH</strong> – Servicio Integral de Higiene y Seguridad en el Trabajo</p>
+    <p style="margin-top: 0.5rem; opacity: 0.6;">Zárate, Buenos Aires / Entre Ríos, Argentina</p>
+  </footer>
+
+</body>
+</html>
 
