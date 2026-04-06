@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SERGURIGH – Lic. Romina Juliana Calvo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root { 
+      --teal: #1e8a9a; --navy: #0b2d36; --gold: #d4a843; --cream: #f2ede6; --white: #ffffff; 
+      --overlay: rgba(11, 45, 54, 0.85);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+
+    /* NAVEGACIÓN ESTILO PREMIUM */
+    nav { 
+      background: rgba(11, 45, 54, 0.95); backdrop-filter: blur(10px); 
+      position: fixed; width: 100%; top: 0; z-index: 1000; padding: 1.2rem 5%; 
+      display: flex; justify-content: flex-end; border-bottom: 1px solid rgba(30, 138, 154, 0.3);
+    }
+    nav a { color: var(--white); text-decoration: none; margin-left: 30px; font-family: 'Barlow Condensed'; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem; }
+
+    /* SECCIÓN HERO - LOGO IZQUIERDA Y FONDO TOTAL */
+    .hero { 
+      height: 100vh; display: flex; align-items: center; position: relative;
+      background: linear-gradient(var(--overlay), var(--overlay)), url('fondo.png') center/cover no-repeat;
+      padding: 0 8%;
+    }
+    .hero-content { display: flex; align-items: center; width: 100%; justify-content: space-between; gap: 50px; }
+    
+    .hero-left { display: flex; align-items: center; gap: 30px; }
+    .hero-logo { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--gold); object-fit: cover; box-shadow: 0 0 40px rgba(212,168,67,0.2); }
+    .hero-title h1 { font-family: 'Barlow Condensed'; font-size: 5rem; font-weight: 900; line-height: 0.85; }
+    .hero-title h1 span { color: var(--teal); }
+    .hero-title p { font-size: 1.4rem; color: var(--cream); margin-top: 10px; font-weight: 300; }
+
+    /* SECCIÓN QUIÉN SOY - FOTO Y HABILIDADES */
+    .about { 
+      padding: 100px 8%; background: var(--white); color: var(--navy); 
+      display: flex; align-items: center; gap: 60px; min-height: 80vh;
+    }
+    .about-img-container { position: relative; flex-shrink: 0; }
+    .about-img { width: 400px; height: 500px; object-fit: cover; border-radius: 20px; box-shadow: 20px 20px 0px var(--teal); }
+    .badge-float { 
+      position: absolute; bottom: -20px; right: -20px; background: var(--gold); color: var(--navy); 
+      padding: 15px 25px; border-radius: 10px; font-family: 'Barlow Condensed'; font-weight: 900; font-size: 1.2rem;
+    }
+
+    .about-text h2 { font-family: 'Barlow Condensed'; font-size: 3.5rem; color: var(--teal); margin-bottom: 1.5rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 25px; }
+    .skill-item { background: var(--cream); padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
+    .skill-item::before { content: ''; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; }
+
+    /* SERVICIOS ORDENADOS */
+    .services { padding: 100px 8%; background: var(--navy); text-align: center; }
+    .serv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+    .serv-card { 
+      background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; border: 1px solid rgba(30,138,154,0.3);
+      text-align: left; transition: 0.3s;
+    }
+    .serv-card:hover { border-color: var(--gold); transform: translateY(-10px); background: rgba(255,255,255,0.08); }
+    .serv-card h3 { font-family: 'Barlow Condensed'; font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+
+    /* CONTACTO LIMPIO */
+    .contact { padding: 100px 8%; background: var(--cream); color: var(--navy); }
+    .contact-container { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .contact-form { background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+    input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1.5px solid #ddd; border-radius: 10px; font-family: inherit; }
+    .btn-submit { background: var(--teal); color: var(--white); border: none; padding: 1.2rem; width: 100%; border-radius: 10px; font-weight: 700; cursor: pointer; text-transform: uppercase; }
+
+    /* BOTONES FLOTANTES */
+    .wa-link { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+    @media (max-width: 992px) {
+      .hero { text-align: center; justify-content: center; }
+      .hero-left { flex-direction: column; }
+      .about { flex-direction: column; text-align: center; }
+      .contact-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#inicio">Home</a>
+    <a href="#perfil">Quién Soy</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="hero-left">
+        <img src="logo.jpg" alt="Logo SERGURIGH" class="hero-logo">
+        <div class="hero-title">
+          <h1>SERGU<span>RIGH</span></h1>
+          <p>Consultoría Estratégica en Higiene y Seguridad Laboral</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="perfil">
+    <div class="about-img-container">
+      <img src="romina.png" alt="Lic. Romina Juliana Calvo" class="about-img">
+      <div class="badge-float">LIC. EN HIGIENE Y SEGURIDAD</div>
+    </div>
+    <div class="about-text">
+      <h2>Profesionalismo y Tecnología</h2>
+      <p><strong>Técnica Universitaria (UTN)</strong> con especialización en la integración de herramientas digitales para la prevención de riesgos industriales.</p>
+      
+      <div class="skills-grid">
+        <div class="skill-item">SAP Professional</div>
+        <div class="skill-item">Power BI Analysis</div>
+        <div class="skill-item">SGA / Químicos</div>
+        <div class="skill-item">ISO 45001</div>
+        <div class="skill-item">Digitalización QR</div>
+        <div class="skill-item">Sistemas SST</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicios">
+    <h2 style="font-family:'Barlow Condensed'; font-size:3rem; margin-bottom:1rem;">Nuestros Servicios</h2>
+    <div class="serv-grid">
+      <div class="serv-card">
+        <h3>Higiene Industrial</h3>
+        <p>Mediciones de ruido, iluminación y contaminantes. Protocolos de ergonomía certificados.</p>
+      </div>
+      <div class="serv-card">
+        <h3>Seguridad en Obra</h3>
+        <p>Legajos técnicos, programas de seguridad y auditorías preventivas en campo.</p>
+      </div>
+      <div class="serv-card">
+        <h3>Transformación Digital</h3>
+        <p>Gestión de datos preventivos y acceso mediante QR a documentación crítica.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="contact-container">
+      <div>
+        <h2 style="font-family:'Barlow Condensed'; font-size:3rem;">Contacto Directo</h2>
+        <p style="margin: 20px 0;">Solicitá una consultoría personalizada o el envío de nuestro perfil corporativo detallado.</p>
+        <p><strong>📍 Cobertura:</strong> Gualeguaychú, Gral. Mansilla y región.</p>
+        <p><strong>📧 Email:</strong> sergurhig@gmail.com</p>
+      </div>
+      <div class="contact-form">
+        <input type="text" id="nombre" placeholder="Nombre / Empresa">
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <textarea id="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?"></textarea>
+        <button class="btn-submit" onclick="enviarMail()">Enviar Consulta</button>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/5493446662925" class="wa-link" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
+  </a>
+
+  <script>
+    function enviarMail() {
+      const n = document.getElementById('nombre').value;
+      const m = document.getElementById('mensaje').value;
+      if(!n || !m) return alert('Por favor, completa los campos.');
+      window.location.href = `mailto:sergurhig@gmail.com?subject=Consulta Web: ${n}&body=${m}`;
+    }
+  </script>
+</body>
+</html>
 
